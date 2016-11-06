@@ -1,0 +1,103 @@
+%script-ul principal
+
+f0 = 10;    %frecventa		
+T = 1/f0;   %perioada
+omega0 = 2*pi*f0;   %pulsatia
+step = 0.001;
+t = -3*T:step:3*T;  %definire vectorul timp
+
+%semnal sinusoidal redresat monoalternanta
+figure;
+
+x=sm(omega0*t); %se gasesc valorile redresate monoalternanta
+subplot(2,2,1); %impart figura in 2 linii si 2 coloane (primul subplot)
+plot(t,x);  %afiseaza semnalul
+axis([-3*T 3*T 0 2]);   %defineste axis
+xlabel('Timp(s)');
+ylabel('Amplitudine');
+title('Redresare monoalternanta');
+
+%semnal sinusoidal redresat dubla alternanta
+y=sd(omega0*t); %se gasesc valori
+subplot(2,2,2); %al doilea subplot 
+plot(t,y);  
+axis([-3*T 3*T 0 2]);
+xlabel('Timp(s)');
+ylabel('Amplitudine');
+title('Redresare dubla alternanta');
+
+%functia Switch
+
+z=fc(t,T);
+subplot(2,2,3);
+plot(t,z,'r');
+axis([-3*T 3*T -2 2]);
+xlabel('Timp(s)');
+ylabel('Amplitudine');
+title('functia Switch');
+
+
+%functia Interruption
+
+z=fi(t,T);
+subplot(2,2,4);
+plot(t,z,'r');
+axis([-3*T 3*T 0 2]);
+xlabel('Timp(s)');
+ylabel('Amplitudine');
+title('functia Interruption');
+
+
+
+%functia fc.m
+function [ y ] = fc( t, T )
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+y=ones(size(t))*(-1);
+
+y(mod(t,T)<T/2) = 1;
+
+
+
+end
+
+
+
+%functia fi.m
+function [ y ] = fi( t, T )
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+y=zeros(size(t));
+
+y(mod(t,T)<T/2) = 1;
+
+
+
+end
+
+
+%functia sd
+function [ x ] = sd( t )
+%UNTITLED4 Summary of this function goes here
+%   Detailed explanation goes here
+x=abs(sin(t));
+
+end
+
+
+%functia sm
+function [ x ] = sm( t )
+%UNTITLED2 Summary of this function goes here
+%   Detailed explanation goes here
+x=sin(t);
+for i=1:length(x)
+    if x(i) <0
+        x(i)=0;
+    end
+end
+
+end
+
+
+
+//programul va afisa 4 grafice, semnal sinusoidal redresat mono si dubla alternanta, semnal dreptunghiular (50% factor de umplere) si semnal dreptunghiular redresat monoalternanta
