@@ -1,0 +1,15 @@
+z=[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+n=0:20
+m=-5:15
+t=abs(10-n) //t in functie de |10-n|
+subplot(2,2,1)
+stem(z,n) //grafic pentru pct. a
+subplot(2,2,2)
+stem(z,m) //grafic pentru pct. a
+subplot(2,2,3)
+stem(t,n) //graficul pentru pct. b
+figure //grafice pct. c
+subplot(2,1,1)
+stem(x1,-15<=n<=25)
+subplot(2,1,2)
+stem(x2,0<=n<=50)
