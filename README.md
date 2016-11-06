@@ -1,1 +1,1 @@
-# SP-project - voi incarca fisierele pe rand, pana la miezul noptii
+# SP-project - tema 1 incheiata
