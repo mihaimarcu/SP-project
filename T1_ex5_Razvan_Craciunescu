@@ -1,0 +1,11 @@
+//pct. a)
+F = 50; t = 0:0.001:0.2; s = 2*sin(2*pi*F*t); plot(t,s,'.-'),xlabel('Timp [s]'),grid //semnal sinusoidal
+F = 50; t = 0:0.01:0.2; s = 2*sin(2*pi*F*t); plot(t,s,'.-'),xlabel('Timp [s]'),grid //graficul este mult mai "grosier" decat primul. Seamana putin cu un sinus
+F = 50; t = 0:0.0002:0.2; s = 2*sin(2*pi*F*t); plot(t,s,'.-'),xlabel('Timp [s]'),grid //graficul este mult mai apropiat de o sinusoida ideala
+
+//pct. b): perioada semnalului in cele 3 cazuri este de 0,05s
+
+//pct. c)
+F = 50; t = 0:0.001:0.2; s = 2*sin(2*pi*F*t);
+F2 = 20; t2 = 0:0.001:0.2; s2 = 2*cos(2*pi*F2*t2); //se definesc frecventa si perioada semnalului cosinusoidal
+plot(t,s,'.-',t2,s2,'.-'),xlabel('Timp [s]'),grid //afisare pe acelasi grafic
