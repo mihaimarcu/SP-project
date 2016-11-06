@@ -1,7 +1,7 @@
 
 r3 = randn(10,1); //se genereaza un vector aleator, cu valorarea medie 0 si deviatie standard 1, distributie normala
    
-for i=1:length(r3) //selecteaza numai valorile pozitive din vector
+for i=1:length(r3) //selecteaza numai valorile pozitive din vector si le egaleaza cu zero
     if r3(i) >0
         r3(i)=0;
     end
